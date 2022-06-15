@@ -86,7 +86,7 @@ void AddNote(int n)		// 파일을 열어 티켓오픈일, 극이름, 예매처를 받는다
 	printf(" 티켓팅 날짜를 입력하세요 : ");		// 콘솔 창에 출력
 	scanf(" %d", &day);			// 입력받기
 	fprintf(fp, "%d일\n", day);		// 파일에 입력
-
+	getchar();
 	if (n >= 1)
 	{
 		stnode = (struct node*)malloc(sizeof(struct node));
@@ -95,13 +95,12 @@ void AddNote(int n)		// 파일을 열어 티켓오픈일, 극이름, 예매처를 받는다
 		{
 			fprintf(fp, " (1) 극 이름을 입력하세요. : "); // 첫번째 node 입력
 			printf(" (1) 극 이름을 입력하세요.: ");
-			scanf(" %s", title);
+			gets(title);
 			fprintf(fp, "%s\n", title);
 			fprintf(fp, " (1) 예매처를 입력하세요. : ");
 			printf(" (1) 예매처를 입력하세요. : ");
-			scanf(" %s", bookingOffice);
+			gets(bookingOffice);
 			fprintf(fp, "%s\n", bookingOffice);
-
 			strcpy(stnode->title, title);		// 값을 node들에 각각 입력
 			strcpy(stnode->bookingOffice, bookingOffice);
 			stnode->preptr = NULL;
@@ -115,11 +114,11 @@ void AddNote(int n)		// 파일을 열어 티켓오픈일, 극이름, 예매처를 받는다
 				{
 					fprintf(fp, " (%d) 극 이름을 입력하세요. : ", i);
 					printf(" (%d) 극 이름을 입력하세요. : ", i);
-					scanf(" %s", title);
+					gets(title);
 					fprintf(fp, "%s\n", title);
 					fprintf(fp, " (%d) 예매처를 입력하세요. : ", i);
 					printf(" (%d) 예매처를 입력하세요. : ", i);
-					scanf(" %s", bookingOffice);
+					gets(bookingOffice);
 					fprintf(fp, "%s\n", bookingOffice);
 
 					strcpy(fnNode->title, title);
